@@ -17,6 +17,8 @@ class CreateGroupsTable extends Migration
             $table->id();
             $table->string("name");
             $table->integer("period");
+            $table->dateTime("start");
+            $table->dateTime("end");
             $table->timestamps();
         });
     }

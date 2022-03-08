@@ -13,6 +13,8 @@ class Group extends Model
     protected $fillable = [
         'name',
         'period',
+        'start',
+        'end',
     ];
 
     public function measures(): HasMany
