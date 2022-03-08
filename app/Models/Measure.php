@@ -16,6 +16,7 @@ class Measure extends Model
 
     protected $fillable = [
         'values',
+        'group_id',
     ];
 
     public function group(): BelongsTo

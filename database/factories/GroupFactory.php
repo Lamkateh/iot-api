@@ -16,7 +16,7 @@ class GroupFactory extends Factory
     {
         $period = $this->faker->numberBetween(1000, 10000);
         $start = new Carbon($this->faker->dateTime());
-        $secondsToAdd = $this->faker->numberBetween($period * $this->faker->numberBetween(10, 1000), $period * $this->faker->numberBetween(1000, 10000));
+        $secondsToAdd = $this->faker->numberBetween($period * $this->faker->numberBetween(10, 50), $period * $this->faker->numberBetween(50, 100));
 
         return [
             'name' => $this->faker->word,
