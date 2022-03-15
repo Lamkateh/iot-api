@@ -15,7 +15,7 @@ class CreateMeasuresTable extends Migration
     {
         Schema::create('measures', function (Blueprint $table) {
             $table->id();
-            $table->json("values");
+            $table->longText("values");
             $table->unsignedBigInteger("group_id");
             $table->timestamps();
         });

@@ -126,7 +126,7 @@ class DatabaseSeeder extends Seeder
             while ($startDate < $endDate) {
                 $measure = Measure::create([
                     'group_id' => $groups[$i]->id,
-                    'values' => [
+                    'values' => json_encode([
                         "latitude" => $coordinates['latitude'],
                         "longitude" => $coordinates['longitude'],
                         "temperature" => [
@@ -137,7 +137,7 @@ class DatabaseSeeder extends Seeder
                             "value" => $this->faker->numberBetween(0, 100),
                             "unit" => "%",
                         ],
-                    ],
+                    ], JSON_NUMERIC_CHECK),
                     'created_at' => $startDate,
                     'updated_at' => $startDate,
                 ]);

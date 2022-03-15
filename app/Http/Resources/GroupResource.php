@@ -22,7 +22,7 @@ class GroupResource extends JsonResource
             'period' => $this->period,
             'start' => $this->start,
             'end' => $this->end,
-            'measures' => $this->measures,
+            'measures' => MeasureResource::collection($this->measures),
         ];
     }
 }
