@@ -25,12 +25,26 @@ class GroupController extends BaseController
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return Response
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
-        //
+        $request->validate([
+            'name' => ['required'],
+            'period' => ['required'],
+            'start' => ['required'],
+            'end' => ['required'],
+        ]);
+
+        $group = Group::create([
+            'name' => $request->name,
+            'period' => $request->period,
+            'start' => $request->start,
+            'end' => $request->end,
+        ]);
+
+        return $this->sendResponse(new GroupPreviewResource($group), "Group successfully created");
     }
 
     /**
@@ -53,7 +67,7 @@ class GroupController extends BaseController
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @param int $id
      * @return Response
      */
